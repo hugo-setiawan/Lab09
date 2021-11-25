@@ -246,6 +246,7 @@ def valid_username(username):
     Method yang melakukan validasi karakter pada username yang dimasukkan.
     Method ini mengembalikan True jika username terdiri dari karakter valid, False jika ada karakter yang tidak valid.
     """
+    # Karakter valid berisi A-Z, a-z, 0-9, -, dan _
     VALID_CHARACTERS = tuple(string.ascii_letters + string.digits + "_" + "-")
     for character in username:
         if character not in VALID_CHARACTERS:
