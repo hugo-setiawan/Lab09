@@ -110,7 +110,7 @@ class Buyer(User) :
         print("4. LOG_OUT")     
         while True:
             print()
-            print(f"Pemasukan anda {self.get_saldo()},")
+            print(f"Saldo anda {self.get_saldo()},")
             menu_select = input("Apa yang ingin anda lakukan? ").strip()
             if menu_select == "1":
                 self.lihat_semua_produk()
