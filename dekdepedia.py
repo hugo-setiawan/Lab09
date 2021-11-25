@@ -70,8 +70,6 @@ class Seller(User) :
             else:
                 break
 
-            
-
 class Buyer(User) : 
     def __init__(self, user_name, saldo):
         super().__init__(user_name, "BUYER")
@@ -152,9 +150,6 @@ class Product() :
     def __str__(self):
         return self.nama
 
-
-# method get_user dan get_product tidak perlu diubah, 
-# silakan manfaatkan method ini untuk mendapatkan user dan produk yang dibutuhkan
 def get_user(name, list_user):
     """
     Method untuk mengembalikan user dengan user_name sesuai parameter
