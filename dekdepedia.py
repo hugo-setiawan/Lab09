@@ -40,8 +40,8 @@ class Seller(User) :
         print("  Nama Product  |   Harga   | Stock ")
         print("-------------------------------------")
         for product in self.list_barang_jual : 
-            # TODO : cetak tiap product dengan urutan alphabetical
             # dengan format : nama product 16 spaces + "|" + harga product 11 spaces + "|" + stok 7 spaces
+            print(f"{product.nama:<16}|{product.harga:<11}|{product.stock:<7}")
             pass
         print("-------------------------------------\n")
 
