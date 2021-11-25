@@ -139,9 +139,6 @@ def main():
                             else:
                                 list_user.append(Buyer(data_user_split[1],data_user_saldo))
 
-                        pass
-
-
         elif (pilih == "2") : 
             user_name_login = input("user_name : ")
             user_logged_in = get_user(user_name_login, list_user)
