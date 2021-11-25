@@ -19,17 +19,15 @@ class Seller(User) :
         """
         Constructor untuk class Seller
         """
-        # TODO : implementasikan constructor dari class Seller
         super().__init__(user_name, "SELLER")
         self.__pemasukan = 0
         self.list_barang_jual = []
 
-    # TODO : lengkapi getter dan setter
     def get_pemasukan(self) : 
-        pass
+        return self.__pemasukan
 
-    def set_pemasukan(self) : 
-        pass
+    def set_pemasukan(self, pemasukan) : 
+        self.__pemasukan = pemasukan
 
     # TODO : implementasikan method untuk tambahkan_produk dan lihat_daftar_produk_saya
     # Anda boleh memodifikasi ataupun menambahkan method sesuai dengan kebutuhan
