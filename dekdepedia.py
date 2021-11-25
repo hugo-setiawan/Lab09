@@ -115,7 +115,6 @@ def main():
             print("Data akun: ")
             for i in range (banyak_user) : 
                 data_user = input(str(i+1)+". ")
-                # TODO : implementasikan sign up
                 data_user_split = data_user.split(maxsplit=2)
                 if data_user_split[0] not in TIPE_USER:
                     print("Akun tidak valid.")
@@ -128,7 +127,6 @@ def main():
                             print("Akun tidak valid.")
                         # TODO init SELLER object
                     else:
-                        # TODO init BUYER
                         if not valid_username(data_user_split[1]):
                             print("Akun tidak valid.")
                         try:
