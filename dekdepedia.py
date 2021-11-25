@@ -180,7 +180,7 @@ class Buyer(User) :
         while True:
             print()
             print(f"Saldo anda {self.get_saldo()},")
-            menu_select = input("Apa yang ingin anda lakukan? ").strip()
+            menu_select = input("Apa yang ingin Anda lakukan? ").strip()
             if menu_select == "1":
                 self.lihat_semua_produk()
             elif menu_select == "2":
