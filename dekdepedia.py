@@ -106,6 +106,16 @@ class Buyer(User) :
             self.saldo -= produk_beli.harga
             produk_beli.buy()
             self.list_barang_beli.append(produk_beli)
+
+    def riwayat_pembelian(self):
+        print("\nBerikut merupakan barang yang saya beli")
+        print("-------------------------------------")
+        print("  Nama Produk  |   Harga   | Penjual ")
+        print("-------------------------------------")
+        for product in self.list_barang_beli:
+            print(f"{product.nama:<16}|{product.harga:<11}|{str(product.seller):<11}")
+        print("-----------------------------------------------")
+    
     def menu(self):
         print()
         print("berikut menu yang bisa Anda lakukan:")
