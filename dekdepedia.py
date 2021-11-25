@@ -88,7 +88,7 @@ def get_product(name):
     return None
 
 PILIHAN = ("1","2","3")
-TIPE_USER = ("SELLER","BUYER")
+TIPE_USER = ("SELLER","BUYER ")
 VALID_CHARACTERS = tuple(string.ascii_letters + string.digits + "_" + "-")
 list_user = []
 list_product = []
@@ -109,8 +109,7 @@ def main():
         for i in range (banyak_user) : 
             data_user = input(str(i+1)+". ")
             # TODO : implementasikan sign up
-            data_user_split = data_user.split()
-            if data_user_split[0] not in TIPE_USER:
+            if data_user[:5] not in TIPE_USER:
                 print("Akun tidak valid.")
             else:
                 tipe_id = TIPE_USER.index(data_user_split[0])
