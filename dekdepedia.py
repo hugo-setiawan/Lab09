@@ -3,15 +3,21 @@ import string
 class User() :
     def __init__(self, user_name, tipe):
         """
-        Constructor untuk class User
+        Constructor untuk class User. Menerima 2 argumen yakni user_name, dan tipe yang bernilai "SELLER" atau "BUYER"
         """
         self.__user_name = user_name
         self.__tipe = tipe
 
     def get_name(self) : 
+        """
+        Method yang mengembalikan username dari user.
+        """
         return self.__user_name
 
     def get_tipe(self) : 
+        """
+        Method yang mengembalikan tipe dari user.
+        """
         return self.__tipe
 
     def __str__(self):
@@ -20,19 +26,28 @@ class User() :
 class Seller(User) : 
     def __init__(self, user_name):
         """
-        Constructor untuk class Seller
+        Constructor untuk class Seller. Menerima 1 argumen yakni username.
         """
         super().__init__(user_name, "SELLER")
         self.__pemasukan = 0
         self.list_barang_jual = []
 
     def get_pemasukan(self) : 
+        """
+        Method yang mengembalikan pemasukan total dari seller.
+        """
         return self.__pemasukan
 
     def set_pemasukan(self, pemasukan) : 
+        """
+        Method yang mengeset pemasukan total dari seller ke suatu nilai tertentu yang ada di parameter pemasukan.
+        """
         self.__pemasukan = pemasukan
 
     def tambah_product(self, nama, harga, stock) :
+        """
+        Method yang menambah produk yang dijual oleh seller. Menerima 3 parameter yakni nama produk (unik), harga produk, dan stok produk.
+        """
         if get_product(nama, list_product) != None:
             print("Produk sudah pernah terdaftar.")
         else:
@@ -42,6 +57,9 @@ class Seller(User) :
             list_product.append(curr_product)
 
     def lihat_produk_jualan_saya(self) : 
+        """
+        Method yang mencetak seluruh barang yang dijual oleh seller.
+        """
         print("\nBerikut merupakan barang jualan saya")
         print("-------------------------------------")
         print("  Nama Product  |   Harga   | Stock ")
@@ -53,6 +71,9 @@ class Seller(User) :
         print("-------------------------------------\n")
 
     def menu(self) : 
+        """
+        Method yang befungsi menjadi menu operasi utama untuk seller.
+        """
         print()
         print(f"Selamat datang {self.get_name()},")
         print("berikut menu yang bisa Anda lakukan:")
@@ -73,17 +94,29 @@ class Seller(User) :
 
 class Buyer(User) : 
     def __init__(self, user_name, saldo):
+        """
+        Constructor untuk kelas Buyer. Menerima 2 argumen yakni username dan saldo awal.
+        """
         super().__init__(user_name, "BUYER")
         self.__saldo = saldo
         self.list_barang_beli = []
     
     def get_saldo(self):
+        """
+        Method yang mengembalikan saldo yang dimiliki buyer saat ini.
+        """
         return self.__saldo
 
     def set_saldo(self, saldo):
+        """
+        Method yang mengeset saldo dari buyer ke suatu nilai tertentu yang ada di parameter saldo.
+        """
         self.__saldo = saldo
 
     def lihat_semua_produk(self):
+        """
+        Method yang mencetak seluruh barang yang dijual di Dekdepedia.
+        """
         print("\nBerikut merupakan daftar produk di Dekdepedia")
         print("------------------------------------------------")
         print("  Nama Produk   |   Harga   | Stock |  Penjual  ")
@@ -94,6 +127,9 @@ class Buyer(User) :
         print("------------------------------------------------")
 
     def beli_produk(self,nama_produk):
+        """
+        Method yang menambah produk yang dibeli oleh buyer. Menerima 1 parameter yakni nama produk yang hendak dibeli.
+        """
         produk_beli = get_product(nama_produk, list_product)
         if produk_beli == None:
             print(f"Barang dengan nama {nama_produk} tidak ditemukan dalam Dekdepedia.")
@@ -108,6 +144,9 @@ class Buyer(User) :
             self.list_barang_beli = sorted(self.list_barang_beli,key=lambda x: str(x))
 
     def riwayat_pembelian(self):
+        """
+        Method yang mencetak seluruh barang yang telah dibeli oleh buyer.
+        """
         print("\nBerikut merupakan barang yang saya beli")
         print("-------------------------------------")
         print("  Nama Produk  |   Harga   | Penjual ")
@@ -117,6 +156,9 @@ class Buyer(User) :
         print("-------------------------------------")
     
     def menu(self):
+        """
+        Method yang befungsi menjadi menu operasi utama untuk buyer.
+        """
         print()
         print(f"Selamat datang {self.get_name()},")
         print("berikut menu yang bisa Anda lakukan:")
@@ -149,12 +191,15 @@ class Product() :
         self.seller = seller
     
     def buy(self):
+        """
+        Method yang melakukan transaksi pembelian sekali pada Product ini.
+        """        
         self.stock -= 1
         self.seller.set_pemasukan(self.seller.get_pemasukan() + self.harga)
 
     def get_name(self):
         """
-        Method yang mengembalikan saldo yang dimiliki buyer saat ini.
+        Method yang mengembalikan nama dari Product.
         """        
         return self.__nama
 
@@ -180,6 +225,10 @@ def get_product(name, list_product):
     return None
 
 def valid_username(username):
+    """
+    Method yang melakukan validasi karakter pada username yang dimasukkan.
+    Method ini mengembalikan True jika username terdiri dari karakter valid, False jika ada karakter yang tidak valid.
+    """
     VALID_CHARACTERS = tuple(string.ascii_letters + string.digits + "_" + "-")
     for character in username:
         if character not in VALID_CHARACTERS:
