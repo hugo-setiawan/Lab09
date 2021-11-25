@@ -98,6 +98,9 @@ class Product() :
         self.harga = harga
         self.stock = stock
         self.seller = seller
+    
+    def __str__(self):
+        return self.nama
 
 
 # method get_user dan get_product tidak perlu diubah, 
