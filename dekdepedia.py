@@ -206,7 +206,7 @@ def main():
                     tipe_id = TIPE_USER.index(data_user_split[0])
                     data_user_username = data_user_split[1]
                     if get_user(data_user_username, list_user) != None:
-                        print("Akun tidak valid.")
+                        print("Username sudah terdaftar.")
                     else:
                         if tipe_id == 0:
                             if len(data_user_split) > 2:
