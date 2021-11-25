@@ -68,7 +68,7 @@ class Seller(User) :
         """
         print("\nBerikut merupakan barang jualan saya")
         print("-------------------------------------")
-        print("  Nama Product  |   Harga   | Stock ")
+        print("  Nama Produk   |   Harga   | Stock ")
         print("-------------------------------------")
         for product in self.list_barang_jual : 
             # dengan format : nama product 16 spaces + "|" + harga product 11 spaces + "|" + stok 7 spaces
@@ -162,7 +162,7 @@ class Buyer(User) :
         print("  Nama Produk  |   Harga   | Penjual ")
         print("-------------------------------------")
         for product in self.list_barang_beli:
-            print(f"{product.get_name():<16}|{product.harga:<11}|{str(product.seller):<11}")
+            print(f"{product.get_name():<15}|{product.harga:<11}|{str(product.seller):<11}")
         print("-------------------------------------")
     
     def menu(self):
