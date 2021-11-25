@@ -88,7 +88,8 @@ class Buyer(User) :
         print("------------------------------------------------")
         print("  Nama Produk   |   Harga   | Stock |  Penjual  ")
         print("------------------------------------------------")
-        for product in list_product:
+        sorted_list_product = sorted(list_product,key=lambda x: str(x))
+        for product in sorted_list_product:
             print(f"{product.nama:<15}|{product.harga:<11}|{product.stock:<7}|{str(product.seller):<11}")
         print("------------------------------------------------")
 
