@@ -95,12 +95,17 @@ class Buyer(User) :
         print("-----------------------------------------------")
 
     def beli_produk(self,nama_produk):
-        if nama_produk not in [str(x) for x in list_product]:
+        produk_beli = get_product(nama_produk)
+        if produk_beli == None:
             print(f"Barang dengan nama {nama_produk} tidak ditemukan dalam Dekdepedia.")
+        elif produk_beli.stock <= 0:
+            print("Maaf, stok produk telah habis.")
+        elif produk_beli.harga > self.get_saldo():
+            print(f"Maaf, saldo Anda tidak cukup untuk membeli {nama_produk}.")
         else:
-            # TODO Implement purchasing product
-            pass
-        
+            self.saldo -= produk_beli.harga
+            produk_beli.buy()
+            self.list_barang_beli.append(produk_beli)
     def menu(self):
         print()
         print("berikut menu yang bisa Anda lakukan:")
