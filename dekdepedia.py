@@ -140,7 +140,10 @@ class Buyer(User) :
 
 class Product() : 
     def __init__(self, nama, harga, stock, seller):
-        self.nama = nama
+        """
+        Constructor untuk kelas Product. Menerima 4 argumen yakni nama produk, harga, jumlah stock, dan object Seller yang menjual.
+        """        
+        self.__nama = nama
         self.harga = int(harga)
         self.stock = int(stock)
         self.seller = seller
@@ -150,10 +153,13 @@ class Product() :
         self.seller.set_pemasukan(self.seller.get_pemasukan() + self.harga)
 
     def get_name(self):
-        return self.nama
+        """
+        Method yang mengembalikan saldo yang dimiliki buyer saat ini.
+        """        
+        return self.__nama
 
     def __str__(self):
-        return self.nama
+        return self.__nama
 
 def get_user(name, list_user):
     """
