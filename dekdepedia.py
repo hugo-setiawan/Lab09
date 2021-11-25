@@ -130,7 +130,7 @@ class Buyer(User) :
         # Sortir list_product global sebelum ditampilkan ke user
         sorted_list_product = sorted(list_product,key=lambda x: str(x))
         for product in sorted_list_product:
-            print(f"{product.get_name():<15}|{product.harga:<11}|{product.stock:<7}|{str(product.seller):<11}")
+            print(f"{product.get_name():<16}|{product.harga:<11}|{product.stock:<7}|{str(product.seller):<11}")
         print("------------------------------------------------")
 
     def beli_produk(self,nama_produk):
