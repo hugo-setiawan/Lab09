@@ -7,9 +7,7 @@ class User() :
         """
         self.__user_name = user_name
         self.__tipe = tipe
-        # TODO : Tambahkan kode untuk inisiasi atribut lainnya
 
-    # TODO : lengkapi method getter
     def get_name(self) : 
         return self.__user_name
 
