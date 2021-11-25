@@ -180,7 +180,6 @@ def valid_username(username):
             return False
     return True
 
-PILIHAN = ("1","2","3")
 TIPE_USER = ("SELLER","BUYER")
 list_user = []
 list_product = []
