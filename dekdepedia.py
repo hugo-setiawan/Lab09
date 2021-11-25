@@ -145,6 +145,10 @@ class Product() :
         self.stock = stock
         self.seller = seller
     
+    def buy(self):
+        self.stock -= 1
+        self.seller.set_pemasukan(self.seller.get_pemasukan + self.harga)
+
     def __str__(self):
         return self.nama
 
