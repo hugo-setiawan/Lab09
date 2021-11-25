@@ -103,7 +103,7 @@ class Buyer(User) :
         elif produk_beli.harga > self.get_saldo():
             print(f"Maaf, saldo Anda tidak cukup untuk membeli {nama_produk}.")
         else:
-            self.saldo -= produk_beli.harga
+            self.__saldo -= produk_beli.harga
             produk_beli.buy()
             self.list_barang_beli.append(produk_beli)
 
