@@ -114,7 +114,7 @@ class Buyer(User) :
         print("-------------------------------------")
         for product in self.list_barang_beli:
             print(f"{product.nama:<16}|{product.harga:<11}|{str(product.seller):<11}")
-        print("-----------------------------------------------")
+        print("-------------------------------------")
     
     def menu(self):
         print()
