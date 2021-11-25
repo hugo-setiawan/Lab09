@@ -100,57 +100,58 @@ list_user = []
 list_product = []
 
 def main():
-    print("Selamat datang di Dekdepedia!")
-    print("Silakan memilih salah satu menu di bawah:")
-    print("1. Sign Up")
-    print("2. Log In")
-    print("3. Exit")
+    while True:
+        print("Selamat datang di Dekdepedia!")
+        print("Silakan memilih salah satu menu di bawah:")
+        print("1. Sign Up")
+        print("2. Log In")
+        print("3. Exit")
 
-    pilih = input("Pilihan Anda: ")
+        pilih = input("Pilihan Anda: ")
 
-    if (pilih == "1") : 
-        banyak_user = int(input("Jumlah akun yang ingin didaftarkan : "))
-        
-        print("Data akun: ")
-        for i in range (banyak_user) : 
-            data_user = input(str(i+1)+". ")
-            # TODO : implementasikan sign up
-            data_user_split = data_user.split(maxsplit=2)
-            if data_user_split[0] not in TIPE_USER:
-                print("Akun tidak valid.")
-            else:
-                tipe_id = TIPE_USER.index(data_user_split[0])
-                if tipe_id == 0:
-                    if len(data_user_split) > 2:
-                        print("Akun tidak valid.")
-                    elif not valid_username(data_user_split[1]):
-                        print("Akun tidak valid.")
-                    # TODO init SELLER object
+        if (pilih == "1") : 
+            banyak_user = int(input("Jumlah akun yang ingin didaftarkan : "))
+            
+            print("Data akun: ")
+            for i in range (banyak_user) : 
+                data_user = input(str(i+1)+". ")
+                # TODO : implementasikan sign up
+                data_user_split = data_user.split(maxsplit=2)
+                if data_user_split[0] not in TIPE_USER:
+                    print("Akun tidak valid.")
                 else:
-                    # TODO init BUYER
-                    if not valid_username(data_user_split[1]):
-                        print("Akun tidak valid.")
-                    try:
-                        data_user_saldo = int(data_user_split[2])
-                        if data_user_saldo < 0:
-                            raise ValueError
-                    except ValueError:
-                        print("Akun tidak valid.")
+                    tipe_id = TIPE_USER.index(data_user_split[0])
+                    if tipe_id == 0:
+                        if len(data_user_split) > 2:
+                            print("Akun tidak valid.")
+                        elif not valid_username(data_user_split[1]):
+                            print("Akun tidak valid.")
+                        # TODO init SELLER object
                     else:
-                        # TODO init BUYER object
+                        # TODO init BUYER
+                        if not valid_username(data_user_split[1]):
+                            print("Akun tidak valid.")
+                        try:
+                            data_user_saldo = int(data_user_split[2])
+                            if data_user_saldo < 0:
+                                raise ValueError
+                        except ValueError:
+                            print("Akun tidak valid.")
+                        else:
+                            # TODO init BUYER object
+                            pass
+
                         pass
 
-                    pass
 
+        elif (pilih == "2") : 
+            user_name_login = input("user_name : ")
+            user_logged_in = get_user(user_name_login, list_user)
+            #TODO : implementasikan log in
 
-    elif (pilih == "2") : 
-        user_name_login = input("user_name : ")
-        user_logged_in = get_user(user_name_login, list_user)
-        #TODO : implementasikan log in
-
-    elif (pilih == "3") : 
-        print("Terima kasih telah menggunakan Dekdepedia!")
-        exit()
+        elif (pilih == "3") : 
+            print("Terima kasih telah menggunakan Dekdepedia!")
+            exit()
 
 if __name__ == "__main__":
     main()
