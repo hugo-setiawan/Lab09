@@ -88,7 +88,7 @@ def get_product(name):
     return None
 
 PILIHAN = ("1","2","3")
-TIPE_USER = ("SELLER","BUYER")
+TIPE_USER = ("SELLER","BUYER ")
 VALID_CHARACTERS = tuple(string.ascii_letters + string.digits + "_" + "-")
 list_user = []
 list_product = []
