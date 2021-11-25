@@ -144,7 +144,7 @@ class Buyer(User) :
         elif produk_beli.stock <= 0:
             print("Maaf, stok produk telah habis.")
         elif produk_beli.harga > self.get_saldo():
-            print(f"Maaf, saldo Anda tidak cukup untuk membeli {nama_produk}.")
+            print(f"Maaf, saldo Anda tidak cukup untuk membeli {nama_produk}")
         else:
             # Jika produk bisa dibeli, lakukan transaksi dengan mengurangi saldo, memanggil method buy() pada object Product
             self.__saldo -= produk_beli.harga
