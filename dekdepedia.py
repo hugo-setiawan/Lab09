@@ -69,7 +69,7 @@ class Seller(User) :
 class Buyer(User) : 
     def __init__(self, user_name, saldo):
         super().__init__(user_name, "BUYER")
-        self.saldo = saldo
+        self.__saldo = saldo
         self.list_barang_beli = []
 
 
