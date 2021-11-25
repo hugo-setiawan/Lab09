@@ -87,9 +87,15 @@ def get_product(name):
             return product
     return None
 
+def validate_username(username):
+    VALID_CHARACTERS = tuple(string.ascii_letters + string.digits + "_" + "-")
+    for character in username:
+        if character not in VALID_CHARACTERS:
+            return False
+    return True
+
 PILIHAN = ("1","2","3")
 TIPE_USER = ("SELLER","BUYER")
-VALID_CHARACTERS = tuple(string.ascii_letters + string.digits + "_" + "-")
 list_user = []
 list_product = []
 
@@ -115,8 +121,11 @@ def main():
             else:
                 tipe_id = TIPE_USER.index(data_user_split[0])
                 if tipe_id == 0:
-                    # TODO init SELLER
-                    pass
+                    if len(data_user_split) > 2:
+                        print("Akun tidak valid.")
+                    elif not validate_username(data_user_split[1]):
+                        print("Akun tidak valid.")
+                    # TODO init SELLER object
                 else:
                     # TODO init BUYER
                     pass
