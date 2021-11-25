@@ -71,6 +71,12 @@ class Buyer(User) :
         super().__init__(user_name, "BUYER")
         self.__saldo = saldo
         self.list_barang_beli = []
+    
+    def get_saldo(self):
+        return self.__saldo
+
+    def set_saldo(self, saldo):
+        self.__saldo = saldo
 
 
 # TODO : implementasikan class Product
