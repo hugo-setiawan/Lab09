@@ -101,6 +101,26 @@ class Buyer(User) :
             # TODO Implement purchasing product
             pass
         
+    def menu(self):
+        print()
+        print("berikut menu yang bisa Anda lakukan:")
+        print("1. LIHAT_SEMUA_PRODUK")
+        print("2. BELI_PRODUK")
+        print("3. RIWAYAT_PEMBELIAN_SAYA") 
+        print("4. LOG_OUT")     
+        while True:
+            print()
+            print(f"Pemasukan anda {self.get_saldo()},")
+            menu_select = input("Apa yang ingin anda lakukan? ").strip()
+            if menu_select == "1":
+                self.lihat_semua_produk()
+            elif menu_select == "2":
+                product_info = input("Masukkan barang yang ingin dibeli : ")
+                self.beli_produk(product_info)
+            elif menu_select == "3":
+                self.riwayat_pembelian()
+            else:
+                break
 
 # TODO : implementasikan class Product
 class Product() : 
