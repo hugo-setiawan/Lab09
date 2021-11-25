@@ -125,7 +125,7 @@ def main():
                             print("Akun tidak valid.")
                         elif not valid_username(data_user_split[1]):
                             print("Akun tidak valid.")
-                        # TODO init SELLER object
+                        list_user.append(Seller(data_user_split[1]))
                     else:
                         if not valid_username(data_user_split[1]):
                             print("Akun tidak valid.")
