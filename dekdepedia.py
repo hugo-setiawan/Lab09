@@ -1,3 +1,5 @@
+import string
+
 class User() :
     def __init__(self, user_name, tipe):
         """
@@ -87,6 +89,7 @@ def get_product(name):
 
 PILIHAN = ("1","2","3")
 TIPE_USER = ("SELLER","BUYER")
+VALID_CHARACTERS = tuple(string.ascii_letters + string.digits + "_" + "-")
 list_user = []
 list_product = []
 
