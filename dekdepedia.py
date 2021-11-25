@@ -141,8 +141,8 @@ class Buyer(User) :
 class Product() : 
     def __init__(self, nama, harga, stock, seller):
         self.nama = nama
-        self.harga = harga
-        self.stock = stock
+        self.harga = int(harga)
+        self.stock = int(stock)
         self.seller = seller
     
     def buy(self):
