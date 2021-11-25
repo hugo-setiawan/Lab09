@@ -81,6 +81,15 @@ class Buyer(User) :
     def set_saldo(self, saldo):
         self.__saldo = saldo
 
+    def lihat_semua_produk(self):
+        print("\nBerikut merupakan daftar produk di Dekdepedia")
+        print("-----------------------------------------------")
+        print(" Nama Produk   |   Harga   | Stock |  Penjual  ")
+        print("-----------------------------------------------")
+        for product in list_product:
+            print(f"{product.nama:<15}|{product.harga:<11}|{product.stock:<7}|{str(product.seller):<11}")
+        print("-----------------------------------------------")
+        
 
 # TODO : implementasikan class Product
 class Product() : 
