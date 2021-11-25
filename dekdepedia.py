@@ -145,6 +145,7 @@ def main():
             if user_logged_in == None:
                 print(f"Akun dengan user_name {user_name_login} tidak ditemukan")
             else:
+                print(f"Anda telah masuk dalam akun {user_name_login} sebagai {user_logged_in.get_tipe()}")
                 user_logged_in.menu()
                 
         elif (pilih == "3") : 
