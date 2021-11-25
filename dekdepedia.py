@@ -150,6 +150,8 @@ def main():
                     else:
                         if not valid_username(data_user_split[1]):
                             print("Akun tidak valid.")
+                        elif len(data_user_split) != 3:
+                            print("Akun tidak valid.")
                         else:
                             try:
                                 data_user_saldo = int(data_user_split[2])
