@@ -33,9 +33,12 @@ class Seller(User) :
         self.__pemasukan = pemasukan
 
     def tambah_product(self, nama, harga, stock) :
-        curr_product = Product(nama,harga,stock,self)
-        self.list_barang_jual.append(curr_product)
-        list_product.append(curr_product)
+        if nama in [str(x) for x in list_product]:
+            print("Produk sudah pernah terdaftar.")
+        else:
+            curr_product = Product(nama,harga,stock,self)
+            self.list_barang_jual.append(curr_product)
+            list_product.append(curr_product)
 
     def lihat_produk_jualan_saya(self) : 
         print("\nBerikut merupakan barang jualan saya")
