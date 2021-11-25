@@ -93,6 +93,13 @@ class Buyer(User) :
         for product in list_product:
             print(f"{product.nama:<15}|{product.harga:<11}|{product.stock:<7}|{str(product.seller):<11}")
         print("-----------------------------------------------")
+
+    def beli_produk(self,nama_produk):
+        if nama_produk not in [str(x) for x in list_product]:
+            print(f"Barang dengan nama {nama_produk} tidak ditemukan dalam Dekdepedia.")
+        else:
+            # TODO Implement purchasing product
+            pass
         
 
 # TODO : implementasikan class Product
