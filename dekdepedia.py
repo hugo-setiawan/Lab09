@@ -160,14 +160,15 @@ def main():
                     print("Akun tidak valid.")
                 else:
                     tipe_id = TIPE_USER.index(data_user_split[0])
+                    data_user_username = data_user_split[1]
                     if tipe_id == 0:
                         if len(data_user_split) > 2:
                             print("Akun tidak valid.")
-                        elif not valid_username(data_user_split[1]):
+                        elif not valid_username(data_user_username):
                             print("Akun tidak valid.")
-                        list_user.append(Seller(data_user_split[1]))
+                        list_user.append(Seller(data_user_username))
                     else:
-                        if not valid_username(data_user_split[1]):
+                        if not valid_username(data_user_username):
                             print("Akun tidak valid.")
                         elif len(data_user_split) != 3:
                             print("Akun tidak valid.")
@@ -179,7 +180,7 @@ def main():
                             except ValueError:
                                 print("Akun tidak valid.")
                             else:
-                                list_user.append(Buyer(data_user_split[1],data_user_saldo))
+                                list_user.append(Buyer(data_user_username,data_user_saldo))
 
         elif (pilih == "2") : 
             user_name_login = input("user_name : ")
