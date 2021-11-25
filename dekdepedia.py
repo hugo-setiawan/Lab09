@@ -31,8 +31,8 @@ class Seller(User) :
 
     # TODO : implementasikan method untuk tambahkan_produk dan lihat_daftar_produk_saya
     # Anda boleh memodifikasi ataupun menambahkan method sesuai dengan kebutuhan
-    def tambah_product(self) :
-        pass
+    def tambah_product(self, nama, harga, stock) :
+        self.list_barang_jual.append(Product(nama,harga,stock,self))
 
     def lihat_produk_jualan_saya(self) : 
         print("\nBerikut merupakan barang jualan saya")
