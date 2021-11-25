@@ -208,3 +208,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# References
+# https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python
+# https://stackoverflow.com/questions/1614236/in-python-how-do-i-convert-all-of-the-items-in-a-list-to-floats
