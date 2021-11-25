@@ -54,6 +54,7 @@ class Seller(User) :
 
     def menu(self) : 
         print()
+        print(f"Selamat datang {self.get_name()},")
         print("berikut menu yang bisa Anda lakukan:")
         print("1. TAMBAHKAN_PRODUK")
         print("2. LIHAT_DAFTAR_PRODUK_SAYA")
@@ -84,12 +85,12 @@ class Buyer(User) :
 
     def lihat_semua_produk(self):
         print("\nBerikut merupakan daftar produk di Dekdepedia")
-        print("-----------------------------------------------")
-        print(" Nama Produk   |   Harga   | Stock |  Penjual  ")
-        print("-----------------------------------------------")
+        print("-------------------------------------------------")
+        print("  Nama Produk   |   Harga   | Stock |  Penjual  ")
+        print("-------------------------------------------------")
         for product in list_product:
             print(f"{product.nama:<15}|{product.harga:<11}|{product.stock:<7}|{str(product.seller):<11}")
-        print("-----------------------------------------------")
+        print("-------------------------------------------------")
 
     def beli_produk(self,nama_produk):
         produk_beli = get_product(nama_produk, list_product)
@@ -115,6 +116,7 @@ class Buyer(User) :
     
     def menu(self):
         print()
+        print(f"Selamat datang {self.get_name()},")
         print("berikut menu yang bisa Anda lakukan:")
         print("1. LIHAT_SEMUA_PRODUK")
         print("2. BELI_PRODUK")
@@ -144,7 +146,7 @@ class Product() :
     def buy(self):
         self.stock -= 1
         self.seller.set_pemasukan(self.seller.get_pemasukan() + self.harga)
-        
+
     def get_name(self):
         return self.nama
 
@@ -182,6 +184,7 @@ list_product = []
 
 def main():
     while True:
+        print()
         print("Selamat datang di Dekdepedia!")
         print("Silakan memilih salah satu menu di bawah:")
         print("1. Sign Up")
