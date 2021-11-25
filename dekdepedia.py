@@ -72,7 +72,6 @@ class Seller(User) :
 
             
 
-# TODO : implementasikan class Buyer
 class Buyer(User) : 
     def __init__(self, user_name, saldo):
         super().__init__(user_name, "BUYER")
@@ -137,7 +136,6 @@ class Buyer(User) :
             else:
                 break
 
-# TODO : implementasikan class Product
 class Product() : 
     def __init__(self, nama, harga, stock, seller):
         self.nama = nama
