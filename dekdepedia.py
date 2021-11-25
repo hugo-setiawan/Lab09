@@ -89,7 +89,7 @@ class Seller(User) :
         while True:
             print()
             print(f"Pemasukan anda {self.get_pemasukan()},")
-            menu_select = input("Apa yang ingin anda lakukan? ")
+            menu_select = input("Apa yang ingin Anda lakukan? ")
             if menu_select == "1":
                 product_info = input("Masukkan data produk : ").split()
                 self.tambah_product(product_info[0],product_info[1],product_info[2])
