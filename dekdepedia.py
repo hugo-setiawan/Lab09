@@ -29,8 +29,6 @@ class Seller(User) :
     def set_pemasukan(self, pemasukan) : 
         self.__pemasukan = pemasukan
 
-    # TODO : implementasikan method untuk tambahkan_produk dan lihat_daftar_produk_saya
-    # Anda boleh memodifikasi ataupun menambahkan method sesuai dengan kebutuhan
     def tambah_product(self, nama, harga, stock) :
         self.list_barang_jual.append(Product(nama,harga,stock,self))
 
