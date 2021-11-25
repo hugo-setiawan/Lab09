@@ -129,15 +129,16 @@ def main():
                     else:
                         if not valid_username(data_user_split[1]):
                             print("Akun tidak valid.")
-                        try:
-                            data_user_saldo = int(data_user_split[2])
-                            if data_user_saldo < 0:
-                                raise ValueError
-                        except ValueError:
-                            print("Akun tidak valid.")
                         else:
-                            # TODO init BUYER object
-                            pass
+                            try:
+                                data_user_saldo = int(data_user_split[2])
+                                if data_user_saldo < 0:
+                                    raise ValueError
+                            except ValueError:
+                                print("Akun tidak valid.")
+                            else:
+                                # TODO init BUYER object
+                                pass
 
                         pass
 
