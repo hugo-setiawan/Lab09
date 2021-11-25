@@ -213,7 +213,8 @@ def main():
                                 print("Akun tidak valid.")
                             elif not valid_username(data_user_username):
                                 print("Akun tidak valid.")
-                            list_user.append(Seller(data_user_username))
+                            else:
+                                list_user.append(Seller(data_user_username))
                         else:
                             if not valid_username(data_user_username):
                                 print("Akun tidak valid.")
