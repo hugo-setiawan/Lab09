@@ -273,7 +273,7 @@ def main():
             print("Data akun: ")
             for i in range (banyak_user) : 
                 data_user = input(str(i+1)+". ")
-                # Split input user ke maksimal 3 elemen dgn maxsplit (karena input valid paling banyak ada 3 elemen)
+                # Split input user ke maksimal 3 elemen dgn maxsplit (karena input valid paling banyak yakni input utk Buyer ada 3 elemen)
                 data_user_split = data_user.split(maxsplit=2)
                 # Validasi tipe user
                 if data_user_split[0] not in TIPE_USER:
