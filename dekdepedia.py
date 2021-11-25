@@ -137,8 +137,7 @@ def main():
                             except ValueError:
                                 print("Akun tidak valid.")
                             else:
-                                # TODO init BUYER object
-                                pass
+                                list_user.append(Buyer(data_user_split[1],data_user_saldo))
 
                         pass
 
