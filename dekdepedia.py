@@ -60,7 +60,11 @@ class Buyer(User) :
 
 # TODO : implementasikan class Product
 class Product() : 
-    pass
+    def __init__(self, nama, harga, stock, seller):
+        self.nama = nama
+        self.harga = harga
+        self.stock = stock
+        self.seller = seller
 
 
 # method get_user dan get_product tidak perlu diubah, 
