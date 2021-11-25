@@ -30,7 +30,8 @@ class Seller(User) :
         self.__pemasukan = pemasukan
 
     def tambah_product(self, nama, harga, stock) :
-        self.list_barang_jual.append(Product(nama,harga,stock,self))
+        curr_product = Product(nama,harga,stock,self)
+        self.list_barang_jual.append(curr_product)
 
     def lihat_produk_jualan_saya(self) : 
         print("\nBerikut merupakan barang jualan saya")
