@@ -85,12 +85,12 @@ class Buyer(User) :
 
     def lihat_semua_produk(self):
         print("\nBerikut merupakan daftar produk di Dekdepedia")
-        print("-------------------------------------------------")
+        print("------------------------------------------------")
         print("  Nama Produk   |   Harga   | Stock |  Penjual  ")
-        print("-------------------------------------------------")
+        print("------------------------------------------------")
         for product in list_product:
             print(f"{product.nama:<15}|{product.harga:<11}|{product.stock:<7}|{str(product.seller):<11}")
-        print("-------------------------------------------------")
+        print("------------------------------------------------")
 
     def beli_produk(self,nama_produk):
         produk_beli = get_product(nama_produk, list_product)
