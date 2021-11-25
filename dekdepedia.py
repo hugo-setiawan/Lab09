@@ -142,7 +142,6 @@ def main():
         elif (pilih == "2") : 
             user_name_login = input("user_name : ")
             user_logged_in = get_user(user_name_login, list_user)
-            #TODO : implementasikan log in
             if user_logged_in == None:
                 print(f"Akun dengan user_name {user_name_login} tidak ditemukan")
             else:
