@@ -46,8 +46,23 @@ class Seller(User) :
         print("-------------------------------------\n")
 
     def menu(self) : 
-        # TODO : implementaiskan menu untuk tipe user seller
-        pass
+        print()
+        print("berikut menu yang bisa Anda lakukan:")
+        print("1. TAMBAHKAN_PRODUK")
+        print("2. LIHAT_DAFTAR_PRODUK_SAYA")
+        print("3. LOG_OUT")        
+        while True:
+            print()
+            print(f"Pemasukan anda {self.get_pemasukan()},")
+            menu_select = input("Apa yang ingin anda lakukan? ")
+            if menu_select == "1":
+                product_info = input("Masukkan data produk : ").split()
+                self.tambah_product(product_info[0],product_info[1],product_info[2])
+            elif menu_select == "2":
+                self.lihat_produk_jualan_saya()
+            else:
+                break
+
             
 
 # TODO : implementasikan class Buyer
