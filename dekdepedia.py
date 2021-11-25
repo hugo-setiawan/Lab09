@@ -105,6 +105,7 @@ class Buyer(User) :
             self.__saldo -= produk_beli.harga
             produk_beli.buy()
             self.list_barang_beli.append(produk_beli)
+            self.list_barang_beli = sorted(self.list_barang_beli,key=lambda x: str(x))
 
     def riwayat_pembelian(self):
         print("\nBerikut merupakan barang yang saya beli")
