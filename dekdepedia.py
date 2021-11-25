@@ -189,6 +189,7 @@ def main():
             else:
                 print(f"Anda telah masuk dalam akun {user_name_login} sebagai {user_logged_in.get_tipe()}")
                 user_logged_in.menu()
+                print(f"Anda telah keluar dari akun {user_name_login}")
                 
         elif (pilih == "3") : 
             print("Terima kasih telah menggunakan Dekdepedia!")
