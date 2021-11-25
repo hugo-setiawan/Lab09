@@ -38,6 +38,7 @@ class Seller(User) :
         else:
             curr_product = Product(nama,harga,stock,self)
             self.list_barang_jual.append(curr_product)
+            self.list_barang_jual = sorted(self.list_barang_jual,key=lambda x: str(x))
             list_product.append(curr_product)
 
     def lihat_produk_jualan_saya(self) : 
