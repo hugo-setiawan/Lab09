@@ -14,6 +14,9 @@ class User() :
     def get_tipe(self) : 
         return self.__tipe
 
+    def __str__(self):
+        return self.__user_name
+
 class Seller(User) : 
     def __init__(self, user_name):
         """
