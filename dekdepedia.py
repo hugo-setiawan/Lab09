@@ -266,33 +266,46 @@ def main():
 
         pilih = input("Pilihan Anda: ")
 
+        # Sign Up
         if (pilih == "1") : 
             banyak_user = int(input("Jumlah akun yang ingin didaftarkan : "))
             
             print("Data akun: ")
             for i in range (banyak_user) : 
                 data_user = input(str(i+1)+". ")
+                # Split input user ke maksimal 3 elemen dgn maxsplit (karena input valid paling banyak ada 3 elemen)
                 data_user_split = data_user.split(maxsplit=2)
+                # Validasi tipe user
                 if data_user_split[0] not in TIPE_USER:
                     print("Akun tidak valid.")
                 else:
+                    # tipe_id 1 untuk Seller, 2 untuk Buyer
                     tipe_id = TIPE_USER.index(data_user_split[0])
                     data_user_username = data_user_split[1]
+                    # Sign up seller account
                     if tipe_id == 0:
+                        # Validasi: tidak ada argumen lain di input selain tipe_user dan username
                         if len(data_user_split) > 2:
                             print("Akun tidak valid.")
+                        # Validasi: cek apakah terdapat karakter di luar yang diperbolehkan
                         elif not valid_username(data_user_username):
                             print("Akun tidak valid.")
+                        # Validasi: apakah nama username sudah terdaftar pada user lain
                         elif get_user(data_user_username, list_user) != None:
                             print("Username sudah terdaftar.")
+                        # Jika input valid, tambahkan Seller dengan nama tsb ke list_user
                         else:
                             list_user.append(Seller(data_user_username))
+                    # Sign up buyer account
                     else:
+                        # Validasi: cek apakah terdapat karakter di luar yang diperbolehkan
                         if not valid_username(data_user_username):
                             print("Akun tidak valid.")
+                        # Validasi: jumlah argumen sesuai yang diminta (tipe_user username saldo)
                         elif len(data_user_split) != 3:
                             print("Akun tidak valid.")
                         else:
+                            # Validasi: saldo valid (berupa integer yang tidak negatif)
                             try:
                                 data_user_saldo = int(data_user_split[2])
                                 if data_user_saldo < 0:
@@ -300,21 +313,28 @@ def main():
                             except ValueError:
                                 print("Akun tidak valid.")
                             else:                    
+                                # Validasi: apakah nama username sudah terdaftar pada user lain
                                 if get_user(data_user_username, list_user) != None:
                                     print("Username sudah terdaftar.")
+                                # Jika input valid, tambahkan Seller dengan nama dan saldo ke list_user
                                 else:
                                     list_user.append(Buyer(data_user_username,data_user_saldo))
-
+        # Log In
         elif (pilih == "2") : 
             user_name_login = input("user_name : ")
+            # Cek ada user di list_user dengan username yang dimasukkan
             user_logged_in = get_user(user_name_login, list_user)
             if user_logged_in == None:
+                # Jika tidak ada user dengan username yang dimasukkan
                 print(f"Akun dengan user_name {user_name_login} tidak ditemukan")
             else:
+                # Login dengan user tersebut, dan akses menu dari user tersebut.
                 print(f"Anda telah masuk dalam akun {user_name_login} sebagai {user_logged_in.get_tipe()}")
                 user_logged_in.menu()
+                # Tampilkan prompt logout jika user selesai dari menu. 
                 print(f"Anda telah keluar dari akun {user_name_login}")
-                
+        
+        # Exit dari program
         elif (pilih == "3") : 
             print("Terima kasih telah menggunakan Dekdepedia!")
             exit()
