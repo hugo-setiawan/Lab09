@@ -152,6 +152,7 @@ class Buyer(User) :
             # Tambahkan produk yang telah dibeli ke list barang barang dibeli milik Buyer, kemudian sortir list tsb
             self.list_barang_beli.append(produk_beli)
             self.list_barang_beli = sorted(self.list_barang_beli,key=lambda x: str(x))
+            print(f"Berhasil membeli {str(produk_beli)} dari {str(produk_beli.seller)}")
 
     def riwayat_pembelian(self):
         """
