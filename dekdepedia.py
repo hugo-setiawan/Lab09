@@ -21,6 +21,9 @@ class User() :
         return self.__tipe
 
     def __str__(self):
+        """
+        Mengembalikan nama user jika object dari User dicast ke str.
+        """
         return self.__user_name
 
 class Seller(User) : 
@@ -48,11 +51,14 @@ class Seller(User) :
         """
         Method yang menambah produk yang dijual oleh seller. Menerima 3 parameter yakni nama produk (unik), harga produk, dan stok produk.
         """
+        # Cek apakah produk dengan nama tsb sudah terdaftar
         if get_product(nama, list_product) != None:
             print("Produk sudah pernah terdaftar.")
         else:
+            # Buatlah object produk dengan parameter yang sesuai, kemudian masukkan ke list punya Seller dan list_product global
             curr_product = Product(nama,harga,stock,self)
             self.list_barang_jual.append(curr_product)
+            # Pastikan list_barang_jual Seller selalu dalam keadaan tersortir
             self.list_barang_jual = sorted(self.list_barang_jual,key=lambda x: str(x))
             list_product.append(curr_product)
 
@@ -121,6 +127,7 @@ class Buyer(User) :
         print("------------------------------------------------")
         print("  Nama Produk   |   Harga   | Stock |  Penjual  ")
         print("------------------------------------------------")
+        # Sortir list_product global sebelum ditampilkan ke user
         sorted_list_product = sorted(list_product,key=lambda x: str(x))
         for product in sorted_list_product:
             print(f"{product.nama:<15}|{product.harga:<11}|{product.stock:<7}|{str(product.seller):<11}")
@@ -130,6 +137,7 @@ class Buyer(User) :
         """
         Method yang menambah produk yang dibeli oleh buyer. Menerima 1 parameter yakni nama produk yang hendak dibeli.
         """
+        # Carilah object Product yang hendak dibeli
         produk_beli = get_product(nama_produk, list_product)
         if produk_beli == None:
             print(f"Barang dengan nama {nama_produk} tidak ditemukan dalam Dekdepedia.")
@@ -138,8 +146,10 @@ class Buyer(User) :
         elif produk_beli.harga > self.get_saldo():
             print(f"Maaf, saldo Anda tidak cukup untuk membeli {nama_produk}.")
         else:
+            # Jika produk bisa dibeli, lakukan transaksi dengan mengurangi saldo, memanggil method buy() pada object Product
             self.__saldo -= produk_beli.harga
             produk_beli.buy()
+            # Tambahkan produk yang telah dibeli ke list barang barang dibeli milik Buyer, kemudian sortir list tsb
             self.list_barang_beli.append(produk_beli)
             self.list_barang_beli = sorted(self.list_barang_beli,key=lambda x: str(x))
 
@@ -194,6 +204,7 @@ class Product() :
         """
         Method yang melakukan transaksi pembelian sekali pada Product ini.
         """        
+        # Lakukan transaksi dengan mengurangi stock Product dan menambah pemasukan dari Seller yang menjual Product ini.
         self.stock -= 1
         self.seller.set_pemasukan(self.seller.get_pemasukan() + self.harga)
 
@@ -204,11 +215,15 @@ class Product() :
         return self.__nama
 
     def __str__(self):
+        """
+        Mengembalikan nama dari Product jika object dicast ke str.
+        """
         return self.__nama
 
 def get_user(name, list_user):
     """
-    Method untuk mengembalikan user dengan user_name sesuai parameter
+    Method untuk mengembalikan user dengan user_name sesuai parameter.
+    Mengembalikan None jika user dengan nama tersebut tidak ditemukan.
     """
     for user in list_user:
         if user.get_name() == name:
@@ -217,7 +232,8 @@ def get_user(name, list_user):
 
 def get_product(name, list_product):
     """
-    Method untuk mengembalikan product dengan name sesuai parameter
+    Method untuk mengembalikan product dengan name sesuai parameter.
+    Mengembalikan None jika produk dengan nama tersebut tidak ditemukan.
     """
     for product in list_product:
         if product.get_name() == name:
