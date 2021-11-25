@@ -33,7 +33,7 @@ class Seller(User) :
         self.__pemasukan = pemasukan
 
     def tambah_product(self, nama, harga, stock) :
-        if get_product(nama) != None:
+        if get_product(nama, list_product) != None:
             print("Produk sudah pernah terdaftar.")
         else:
             curr_product = Product(nama,harga,stock,self)
@@ -95,7 +95,7 @@ class Buyer(User) :
         print("-----------------------------------------------")
 
     def beli_produk(self,nama_produk):
-        produk_beli = get_product(nama_produk)
+        produk_beli = get_product(nama_produk, list_product)
         if produk_beli == None:
             print(f"Barang dengan nama {nama_produk} tidak ditemukan dalam Dekdepedia.")
         elif produk_beli.stock <= 0:
@@ -164,7 +164,7 @@ def get_user(name, list_user):
             return user
     return None
 
-def get_product(name):
+def get_product(name, list_product):
     """
     Method untuk mengembalikan product dengan name sesuai parameter
     """
