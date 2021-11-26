@@ -286,7 +286,7 @@ def main():
                     # Sign up seller account
                     if tipe_id == 0:
                         # Validasi: tidak ada argumen lain di input selain tipe_user dan username
-                        if len(data_user_split) > 2:
+                        if len(data_user_split) != 2:
                             print("Akun tidak valid.")
                         # Validasi: cek apakah terdapat karakter di luar yang diperbolehkan
                         elif not valid_username(data_user_username):
