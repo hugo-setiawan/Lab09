@@ -54,6 +54,7 @@ class Seller(User) :
         # Cek apakah produk dengan nama tsb sudah terdaftar
         if get_product(nama, list_product) != None:
             print("Produk sudah pernah terdaftar.")
+
         else:
             # Buatlah object produk dengan parameter yang sesuai, kemudian masukkan ke list punya Seller dan list_product global
             curr_product = Product(nama,harga,stock,self)
@@ -92,8 +93,10 @@ class Seller(User) :
             if menu_select == "1":
                 product_info = input("Masukkan data produk : ").split()
                 self.tambah_product(product_info[0],product_info[1],product_info[2])
+
             elif menu_select == "2":
                 self.lihat_produk_jualan_saya()
+                
             else:
                 break
 
@@ -140,10 +143,13 @@ class Buyer(User) :
         produk_beli = get_product(nama_produk, list_product)
         if produk_beli == None:
             print(f"Barang dengan nama {nama_produk} tidak ditemukan dalam Dekdepedia.")
+
         elif produk_beli.stock <= 0:
             print("Maaf, stok produk telah habis.")
+
         elif produk_beli.harga > self.get_saldo():
             print(f"Maaf, saldo Anda tidak cukup untuk membeli {nama_produk}")
+
         else:
             # Jika produk bisa dibeli, lakukan transaksi dengan mengurangi saldo, memanggil method buy() pada object Product
             self.__saldo -= produk_beli.harga
@@ -182,11 +188,14 @@ class Buyer(User) :
             menu_select = input("Apa yang ingin Anda lakukan? ").strip()
             if menu_select == "1":
                 self.lihat_semua_produk()
+
             elif menu_select == "2":
                 product_info = input("Masukkan barang yang ingin dibeli : ")
                 self.beli_produk(product_info)
+
             elif menu_select == "3":
                 self.riwayat_pembelian()
+
             else:
                 break
 
@@ -279,6 +288,7 @@ def main():
                 # Validasi tipe user
                 if data_user_split[0] not in TIPE_USER:
                     print("Akun tidak valid.")
+
                 else:
                     # tipe_id 1 untuk Seller, 2 untuk Buyer
                     tipe_id = TIPE_USER.index(data_user_split[0])
@@ -287,12 +297,15 @@ def main():
                         # Validasi: tidak ada argumen lain di input selain tipe_user dan username
                         if len(data_user_split) != 2:
                             print("Akun tidak valid.")
+
                         # Validasi: cek apakah terdapat karakter di luar yang diperbolehkan
                         elif not valid_username(data_user_split[1]):
                             print("Akun tidak valid.")
+
                         # Validasi: apakah nama username sudah terdaftar pada user lain
                         elif get_user(data_user_split[1], list_user) != None:
                             print("Username sudah terdaftar.")
+
                         # Jika input valid, tambahkan Seller dengan nama tsb ke list_user
                         else:
                             list_user.append(Seller(data_user_split[1]))
@@ -301,9 +314,11 @@ def main():
                         # Validasi: jumlah argumen sesuai yang diminta (tipe_user username saldo)
                         if len(data_user_split) != 3:
                             print("Akun tidak valid.")
+
                         # Validasi: cek apakah terdapat karakter di luar yang diperbolehkan
                         elif not valid_username(data_user_split[1]):
                             print("Akun tidak valid.")
+
                         else:
                             # Validasi: saldo valid (berupa integer yang tidak negatif)
                             try:
@@ -316,6 +331,7 @@ def main():
                                 # Validasi: apakah nama username sudah terdaftar pada user lain
                                 if get_user(data_user_split[1], list_user) != None:
                                     print("Username sudah terdaftar.")
+
                                 # Jika input valid, tambahkan Seller dengan nama dan saldo ke list_user
                                 else:
                                     list_user.append(Buyer(data_user_split[1],data_user_saldo))
@@ -327,6 +343,7 @@ def main():
             if user_logged_in == None:
                 # Jika tidak ada user dengan username yang dimasukkan
                 print(f"Akun dengan user_name {user_name_login} tidak ditemukan")
+
             else:
                 # Login dengan user tersebut, dan akses menu dari user tersebut.
                 print(f"Anda telah masuk dalam akun {user_name_login} sebagai {user_logged_in.get_tipe()}")
