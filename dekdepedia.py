@@ -282,28 +282,27 @@ def main():
                 else:
                     # tipe_id 1 untuk Seller, 2 untuk Buyer
                     tipe_id = TIPE_USER.index(data_user_split[0])
-                    data_user_username = data_user_split[1]
                     # Sign up seller account
                     if tipe_id == 0:
                         # Validasi: tidak ada argumen lain di input selain tipe_user dan username
                         if len(data_user_split) != 2:
                             print("Akun tidak valid.")
                         # Validasi: cek apakah terdapat karakter di luar yang diperbolehkan
-                        elif not valid_username(data_user_username):
+                        elif not valid_username(data_user_split[1]):
                             print("Akun tidak valid.")
                         # Validasi: apakah nama username sudah terdaftar pada user lain
-                        elif get_user(data_user_username, list_user) != None:
+                        elif get_user(data_user_split[1], list_user) != None:
                             print("Username sudah terdaftar.")
                         # Jika input valid, tambahkan Seller dengan nama tsb ke list_user
                         else:
-                            list_user.append(Seller(data_user_username))
+                            list_user.append(Seller(data_user_split[1]))
                     # Sign up buyer account
                     else:
-                        # Validasi: cek apakah terdapat karakter di luar yang diperbolehkan
-                        if not valid_username(data_user_username):
-                            print("Akun tidak valid.")
                         # Validasi: jumlah argumen sesuai yang diminta (tipe_user username saldo)
-                        elif len(data_user_split) != 3:
+                        if len(data_user_split) != 3:
+                            print("Akun tidak valid.")
+                        # Validasi: cek apakah terdapat karakter di luar yang diperbolehkan
+                        elif not valid_username(data_user_split[1]):
                             print("Akun tidak valid.")
                         else:
                             # Validasi: saldo valid (berupa integer yang tidak negatif)
@@ -315,11 +314,11 @@ def main():
                                 print("Akun tidak valid.")
                             else:                    
                                 # Validasi: apakah nama username sudah terdaftar pada user lain
-                                if get_user(data_user_username, list_user) != None:
+                                if get_user(data_user_split[1], list_user) != None:
                                     print("Username sudah terdaftar.")
                                 # Jika input valid, tambahkan Seller dengan nama dan saldo ke list_user
                                 else:
-                                    list_user.append(Buyer(data_user_username,data_user_saldo))
+                                    list_user.append(Buyer(data_user_split[1],data_user_saldo))
         # Log In
         elif (pilih == "2") : 
             user_name_login = input("user_name : ")
