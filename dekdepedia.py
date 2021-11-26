@@ -364,6 +364,7 @@ if __name__ == "__main__":
 # Slides DDP-1 B
 # https://docs.python.org/3.9/library/stdtypes.html
 # https://docs.python.org/3.9/tutorial/datastructures.html
+# https://docs.python.org/3.9/tutorial/classes.html
 # https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python
 #
 #  /$$$$$$$            /$$             /$$                                     /$$ /$$          
