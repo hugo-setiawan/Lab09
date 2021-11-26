@@ -73,7 +73,6 @@ class Seller(User) :
         for product in self.list_barang_jual : 
             # dengan format : nama product 16 spaces + "|" + harga product 11 spaces + "|" + stok 7 spaces
             print(f"{product.get_name():<16}|{product.harga:<11}|{product.stock:<7}")
-            pass
         print("-------------------------------------\n")
 
     def menu(self) : 
