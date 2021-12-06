@@ -1,6 +1,6 @@
 # Lab09 - Classes, Objects, and Inheritance (Dekdepedia)
 
-This was my submission for Lab09 (Dekdepedia) of DDP 1 2021-2022-1. 
+This was my submission for [Lab09 (Dekdepedia)](https://docs.google.com/document/d/1OMO0LmjBlTt7DZMg57wx20ErDvwGU6U8ElqKYiqFTFY/edit) of DDP 1 2021-2022-1. 
 
 ## Disclaimer
 Code contained within this repository may not demonstrate good programming practices. This repository is only open sourced as reference material for anyone who might ever need it. 
